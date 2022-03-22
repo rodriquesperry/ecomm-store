@@ -1,0 +1,10 @@
+.main-container {
+    display: flex;
+    /*justify-content: space-between;*/
+    flex-wrap: wrap;
+}
+
+.card {
+    border: none;
+    margin: 0 2rem 3rem 0;
+}
