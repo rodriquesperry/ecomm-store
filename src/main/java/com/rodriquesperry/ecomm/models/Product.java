@@ -25,6 +25,9 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Image> images;
 
+    @ManyToOne
+    private User user;
+
     public long getId() {
         return id;
     }
