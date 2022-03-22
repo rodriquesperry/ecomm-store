@@ -13,7 +13,10 @@
     </div>
 
     <div class="container">
-        <div data-reflow-type="product-list" data-reflow-layout="cards" data-reflow-order="date_desc" data-reflow-product-link="/product.html?product={id}"></div>
+        <div th:each="product : ${products}">
+            <p th:text="${product.title}"></p>
+        </div>
+<!--        <div data-reflow-type="product-list" data-reflow-layout="cards" data-reflow-order="date_desc" data-reflow-product-link="/product.html?product={id}"></div>-->
     </div>
     <div th:replace="partials.html :: scripts"></div>
 
