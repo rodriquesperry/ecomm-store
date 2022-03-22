@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--Head-->
+<div th:fragment="head">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.reflowhq.com/v1/toolkit.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&amp;display=swap">
+        <link rel="stylesheet" href="../static/css/styles.css">
+    </head>
+</div>
+
+
+
+
+
+
+
+    <div th:fragment="navbar">
+        <nav class="navbar navbar-light navbar-expand-md">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="/">Product List</a></li>
+                    </ul><a class="btn btn-primary ms-auto" role="button" href="cart.html">See Cart</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</html>
