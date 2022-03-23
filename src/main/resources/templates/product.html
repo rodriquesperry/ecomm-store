@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="partials.html :: head"></div>
+    <title>Untitled</title>
+</head>
+
+<body>
+    <div th:replace="partials.html :: navbar"></div>
+    <div class="container">
+        <h1 style="margin-bottom: 24px;">Product</h1>
+    </div>
+
+    <div class="container">
+        <h5 th:text="${product}"></h5>
+    </div>
+
+<div th:replace="partials.html :: scripts"></div>
+</body>
+
+</html>

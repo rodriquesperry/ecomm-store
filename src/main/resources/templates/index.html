@@ -15,11 +15,15 @@
     <div class="container main-container">
         <div class="row">
             <div class="products col-lg-4 col-md-6 col-sm-12" th:each="product : ${products}">
-                <div class="card" style="width: 23rem;">
-                    <img class="img-fluid" src="../images/pexels-mikael-blomkvist-6476587.jpeg" alt="">
-                    <h4 class="card-title" th:text="${product.title}"></h4>
-                    <p class="card-text" th:text="${product.description}"></p>
-                </div>
+                <a th:href="@{/product/}">
+                    <h1 th:text="${product.id}"></h1>
+                    <input type="hidden" name="productId" th:value="${product.id}">
+                    <div class="card" style="width: 23rem;">
+                        <img class="img-fluid" src="../images/pexels-mikael-blomkvist-6476587.jpeg" alt="">
+                        <h4 class="card-title" name="title" th:text="${product.title}"></h4>
+                        <p class="card-text" name="description" th:text="${product.description}"></p>
+                    </div>
+                </a>
             </div>
         </div>
 
