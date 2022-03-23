@@ -1,5 +1,6 @@
 package com.rodriquesperry.ecomm.controllers;
 
+import com.rodriquesperry.ecomm.models.Product;
 import com.rodriquesperry.ecomm.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,8 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public String ShowSingleProductPage(@PathVariable long id, Model model) {
-        model.addAttribute()
+        Product product = productDao.findById(id);
+        model.addAttribute("product", product);
         return "product";
     }
 
