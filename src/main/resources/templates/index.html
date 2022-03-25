@@ -16,7 +16,6 @@
         <div class="row">
             <div class="products col-lg-4 col-md-6 col-sm-12" th:each="product : ${products}">
                 <a th:href="@{/product/{id}(id=${product.id})}"> <!-- where id equals the product id -->
-                    <h1 th:text="${product.id}"></h1>
                     <input type="hidden" name="productId" th:value="${product.id}">
                     <div class="card" style="width: 23rem;">
                         <img class="img-fluid" src="../images/pexels-mikael-blomkvist-6476587.jpeg" alt="">

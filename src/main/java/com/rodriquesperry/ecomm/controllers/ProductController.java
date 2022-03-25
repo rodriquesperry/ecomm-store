@@ -1,13 +1,14 @@
 package com.rodriquesperry.ecomm.controllers;
 
+import com.rodriquesperry.ecomm.models.CartItem;
 import com.rodriquesperry.ecomm.models.Product;
 import com.rodriquesperry.ecomm.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProductController {
@@ -28,7 +29,13 @@ public class ProductController {
     public String ShowSingleProductPage(@PathVariable long id, Model model) {
         Product product = productDao.findById(id);
         model.addAttribute("product", product);
+        model.addAttribute("cartItem", new CartItem());
         return "product";
+    }
+
+    @PostMapping("/product/{id}")
+    public String createCartItem(@ModelAttribute CartItem cart) {
+        return "redirect:/cart";
     }
 
 }

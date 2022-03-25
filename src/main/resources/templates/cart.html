@@ -1,32 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <div th:replace="partials.html :: head"></div>
     <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.reflowhq.com/v1/toolkit.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md">
-        <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="/">Product List</a></li>
-                </ul><a class="btn btn-primary ms-auto" role="button" href="cart.html">See Cart</a>
-            </div>
-        </div>
-    </nav>
+    <div th:replace="partials.html :: navbar"></div>
     <div class="container">
-        <div data-reflow-type="shopping-cart" data-reflow-success-url="/success.html" data-reflow-cancel-url="/cancel.html"></div>
+        <h1>This is your cart!!</h1>
+        <h2 th:text="${cart}"></h2>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.reflowhq.com/v1/toolkit.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+
+    <div th:replace="partials.html :: scripts"></div>
 </body>
 
 </html>
