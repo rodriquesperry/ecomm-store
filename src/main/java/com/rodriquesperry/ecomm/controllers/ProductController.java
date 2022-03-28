@@ -27,15 +27,10 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public String ShowSingleProductPage(@PathVariable long id, Model model) {
-        Product product = productDao.findById(id);
+        Product product = productDao.findProductById(id);
         model.addAttribute("product", product);
-        model.addAttribute("cartItem", new CartItem());
+//        model.addAttribute("cartItem", new CartItem());
         return "product";
-    }
-
-    @PostMapping("/product/{id}")
-    public String createCartItem(@ModelAttribute CartItem cart) {
-        return "redirect:/cart";
     }
 
 }

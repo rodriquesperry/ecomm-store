@@ -18,17 +18,14 @@
                 <img class="img-fluid" src="../images/pexels-mikael-blomkvist-6476587.jpeg" alt="">
             </div>
             <div class="col product-data">
-                <h3 th:text="${product.title}"></h3>
-                $ <strong th:text="${product.price}"></strong>
-                <p th:text="${product.description}"></p>
-                <br>
-                    <form th:action="@{/cart}" th:method="post" th:object="${cart}">
-                        <input type="text" th:field="*{description}" th:text="${product.description}" hidden>
-                        <!--                    <input type="text" th:field="*{id}" th:value="${product.id}" hidden>-->
-                        <input type="text" th:field="*{title}" th:text="${product.title}" hidden>
-                        <!--                    <input type="text" th:field="*{price}" th:value="${product.price}" hidden>-->
-                        <button id="addToCart">Add To Cart</button>
-                    </form>
+                <form th:action="@{/cart}" method="post">
+                    <input type="hidden" name="productId" th:value="${product.id}">
+                    <h3 th:text="${product.title}"></h3>
+                    $ <strong th:text="${product.price}"></strong>
+                    <p th:text="${product.description}"></p>
+                    <br>
+                   <button type="submit" id="addToCart">Add To Cart</button>
+                </form>
             </div>
         </div>
 

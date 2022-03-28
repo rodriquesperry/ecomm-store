@@ -26,6 +26,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private List<Cart> carts;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Product> products;
 

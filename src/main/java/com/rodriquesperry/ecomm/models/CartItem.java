@@ -1,9 +1,12 @@
 package com.rodriquesperry.ecomm.models;
 
 import jakarta.persistence.*;
+import org.springframework.context.annotation.EnableMBeanExport;
+
+import java.util.List;
 
 @Entity
-@Table(name = "cart_item")
+@Table(name = "cart_items")
 public class CartItem {
 
     @Id
@@ -11,13 +14,15 @@ public class CartItem {
     private long id;
 
     @Column(nullable = false)
-    private String title;
+    private long quantity;
 
-    @Column(nullable = false)
-    private String description;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cartItem")
+    private List<Cart> carts;
 
-    @Column(nullable = false)
-    private long price;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     public long getId() {
         return id;
@@ -27,27 +32,28 @@ public class CartItem {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public String getDescription() {
-        return description;
+    public long getQuantity() {
+        return quantity;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
     }
 
-    public long getPrice() {
-        return price;
+
+    public List<Cart> getCarts() {
+        return carts;
     }
 
-    public void setPrice(long price) {
-        this.price = price;
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 }
