@@ -1,9 +1,7 @@
 package com.rodriquesperry.ecomm.models;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import java.awt.*;
 import java.util.List;
 
 @Entity
@@ -23,10 +21,13 @@ public class Product {
     private long price;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private List<CartItem> cartItemItems;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Image> images;
 
     @ManyToOne
-    private User user;
+    private User admin;
 
     public long getId() {
         return id;
@@ -66,5 +67,21 @@ public class Product {
 
     public void setImages(List<Image> images) {
         this.images = images;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItemItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItemItems) {
+        this.cartItemItems = cartItemItems;
+    }
+
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 }

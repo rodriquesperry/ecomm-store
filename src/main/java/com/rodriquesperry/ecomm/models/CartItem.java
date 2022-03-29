@@ -1,7 +1,6 @@
 package com.rodriquesperry.ecomm.models;
 
 import jakarta.persistence.*;
-import org.springframework.context.annotation.EnableMBeanExport;
 
 import java.util.List;
 
@@ -14,15 +13,25 @@ public class CartItem {
     private long id;
 
     @Column(nullable = false)
-    private long quantity;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cartItem")
-    private List<Cart> carts;
-
+    private long productQuantity;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @ManyToOne
+    private Cart cart;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cartItem")
+//    private List<Cart> carts;
+
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "cart_items_carts",
+//            joinColumns ={@JoinColumn(name = "cart_item_id")},
+//            inverseJoinColumns ={@JoinColumn(name = "cart_id")}
+//    )
+//    private List<Cart> carts;
 
     public long getId() {
         return id;
@@ -40,20 +49,40 @@ public class CartItem {
         this.product = product;
     }
 
-    public long getQuantity() {
-        return quantity;
+    public long getQuantity(long quantity) {
+        return productQuantity;
     }
 
-    public void setQuantity(long quantity) {
-        this.quantity = quantity;
+    public void setQuantity(long productQuantity) {
+        this.productQuantity = productQuantity;
     }
 
-
-    public List<Cart> getCarts() {
-        return carts;
+    public long getProductQuantity() {
+        return productQuantity;
     }
 
-    public void setCarts(List<Cart> carts) {
-        this.carts = carts;
+    public void setProductQuantity(long productQuantity) {
+        this.productQuantity = productQuantity;
     }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    //    public List<Cart> getCarts() {
+//        return carts;
+//    }
+
+//    public void setCarts(List<Cart> carts) {
+//        this.carts = carts;
+//    }
+
+
+//    public void setCarts(List<Cart> carts) {
+//        this.carts = carts;
+//    }
 }

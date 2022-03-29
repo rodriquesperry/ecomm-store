@@ -18,11 +18,12 @@
                 <img class="img-fluid" src="../images/pexels-mikael-blomkvist-6476587.jpeg" alt="">
             </div>
             <div class="col product-data">
-                <form th:action="@{/cart}" method="post">
+                <form th:action="@{/addToCart}" method="post">
                     <input type="hidden" name="productId" th:value="${product.id}">
                     <h3 th:text="${product.title}"></h3>
                     $ <strong th:text="${product.price}"></strong>
                     <p th:text="${product.description}"></p>
+                    <input type="number" name="productQuantity" th:value="${cartItem.productQuantity}">
                     <br>
                    <button type="submit" id="addToCart">Add To Cart</button>
                 </form>

@@ -26,10 +26,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private List<Cart> carts;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "admin")
     private List<Product> products;
 
     public long getId() {
@@ -87,4 +84,6 @@ public class User {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+
 }
